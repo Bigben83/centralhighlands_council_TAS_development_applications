@@ -71,6 +71,7 @@ doc.css('div.twelve.columns').each do |row|
 
   # Extract the on notice date (date in <strong> tag after 'until')
   on_notice_to = row.at_css('p:contains("until") strong').text.strip
+  on_notice_to = Date.strptime(on_notice_to, "%d %B, %Y").to_s
 
   # Log the extracted data
   logger.info("Extracted Data: Address: #{address}, Council Reference: #{council_reference}, Description: #{description}, On Notice To: #{on_notice_to}")
