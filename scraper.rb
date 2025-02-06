@@ -80,8 +80,8 @@ doc.css('div.twelve.columns').each do |row|
   existing_entry = db.execute("SELECT * FROM centralhighlands WHERE council_reference = ?", council_reference)
   if existing_entry.empty?
     # Save data to the database
-    db.execute("INSERT INTO centralhighlands (address, council_reference, description, on_notice_to) 
-      VALUES (?, ?, ?, ?)", [address, council_reference, description, on_notice_to])
+    db.execute("INSERT INTO centralhighlands (address, council_reference, description, on_notice_to, date_scraped) 
+      VALUES (?, ?, ?, ?, ?)", [address, council_reference, description, on_notice_to, date_scraped])
 
     logger.info("Data for #{council_reference} saved to database.")
   else
